@@ -49,7 +49,11 @@ public class Login extends HttpServlet {
 				cookie.setMaxAge(30*24*60*60);
 				response.addCookie(cookie);
 			}
-			response.sendRedirect(getServletContext().getContextPath()+"/home");
+			if(request.getParameter("referer").equals(request.getHeader("referer")) || request.getParameter("referer").equals("")){
+                response.sendRedirect(getServletContext().getContextPath()+"/home");
+            }else{
+                response.sendRedirect(request.getParameter("referer"));
+            }
 		} else {
 			request.getSession().setAttribute("error", "Username / password incorrect");
 			response.sendRedirect(getServletContext().getContextPath()+"/login");

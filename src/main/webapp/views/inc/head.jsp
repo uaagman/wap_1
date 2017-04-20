@@ -18,7 +18,7 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="<c:url value="/"/> ">Home</a></li>
 				<li><a href="javascript:;">Products</a></li>
-				<li><a href="javascript:;">Cart</a></li>
+				<li><a href="<c:url value="myCart"/> ">Cart</a></li>
 				<c:choose>
 					<c:when test="${LoggedUser eq null}">
 						<li><a href="<c:url value="login"/>">Login</a></li>

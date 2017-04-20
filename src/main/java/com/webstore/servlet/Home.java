@@ -15,6 +15,7 @@ public class Home extends HttpServlet {
         super();
     }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//request.setAttribute("productList", );
 		request.getRequestDispatcher("views/home.jsp").forward(request, response);
 	}
 

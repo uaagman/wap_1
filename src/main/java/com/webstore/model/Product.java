@@ -15,4 +15,21 @@ public class Product {
         this.description = description;
         this.image = image;
     }
+
+	public String getName() {
+		return name;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public String getImage() {
+		return image;
+	}
+    
 }

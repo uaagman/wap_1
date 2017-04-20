@@ -7,13 +7,13 @@ import java.util.Map;
  * Created by ashok on 4/20/2017.
  */
 public class Factory {
-    public Map<String,User> getUsers(){
+    public static Map<String,User> getUsers(){
         Map<String,User> users = new HashMap<>();
         users.put("ashok",new User("ashok","ashok"));
         users.put("mukesh",new User("mukesh","mukesh"));
         return users;
     }
-    public Map<String,Product> getProducts(){
+    public static Map<String,Product> getProducts(){
         Map<String,Product> products = new HashMap<>();
         products.put("shoe",new Product("shoe",100, "very good ","shoe.jpg"));
         products.put("bag",new Product("bag",200, "very good ","bag.jpg"));

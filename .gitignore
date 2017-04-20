@@ -1,5 +1,10 @@
 /target/
-
 /.settings/
 .classpath
 .project
+/.idea/
+.idea/misc.xml
+.idea/workspace.xml
+src/main/resources/
+src/test/
+*.iml

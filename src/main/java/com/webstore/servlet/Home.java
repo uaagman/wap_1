@@ -22,6 +22,7 @@ public class Home extends HttpServlet {
         productsMap = Factory.getProducts();
     }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Product list:"+productsMap.values());
 		request.setAttribute("products", productsMap.values());
 		request.getRequestDispatcher("views/home.jsp").forward(request, response);
 	}

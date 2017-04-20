@@ -1,4 +1,4 @@
-package filter;
+package com.webstore.filter;
 
 import java.io.IOException;
 import javax.servlet.Filter;

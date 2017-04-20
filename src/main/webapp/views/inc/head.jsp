@@ -24,7 +24,7 @@
 						<li><a href="<c:url value="login"/>">Login</a></li>
 					</c:when>
 					<c:otherwise>
-						<li><a href="<c:url value="login"/>">(${LoggedUser})Logout</a></li>
+						<li><a href="<c:url value="logout"/>">(${LoggedUser})Logout</a></li>
 					</c:otherwise>
 				</c:choose>
 			</ul>

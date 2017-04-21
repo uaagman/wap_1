@@ -25,18 +25,24 @@ public class CartServlet extends HttpServlet {
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Integer pro_id = Integer.parseInt(request.getParameter("pro_id"));
-        Integer qty = Integer.valueOf(request.getParameter("qty"));
-        if(qty == null){
+        Integer qty;
+        if(request.getParameter("qty").equals("")){
             qty = 1;
-        }
-        List<Product> products = (List<Product>) Factory.getProducts().values();
+        }else {
+        	qty = Integer.valueOf(request.getParameter("qty"));
+		}
+        List<Product> products = new ArrayList<Product>(Factory.getProducts().values());
         List<Cart> carts = (List<Cart>) request.getSession().getAttribute("cartItems");
         int count = 0;
-        for (Cart c:carts){
-            if(c.getProductId() == pro_id){
-                count++;
-            }
-        }
+        if (carts!=null) {
+			for (Cart c : carts) {
+				if (c.getProductId() == pro_id) {
+					count++;
+				}
+			}	
+		}else {
+			carts = new ArrayList<>();
+		}
         if(count == 0){
             for (Product p : products){
                 if(p.getId().equals(pro_id)){

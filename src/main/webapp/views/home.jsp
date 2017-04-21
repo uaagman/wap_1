@@ -10,7 +10,7 @@
 			<div class="item">
 				<c:if test="${product!=null}">
 					<form action='<c:url value="myCart"/>' method="post">
-						<img src="${product.image}" alt="" />
+						<img src='<c:url value="resources/image/${product.image}"/>' alt="" />
 						<div class="row">
 							<div class="col-md-7 col-sm-7">
 								<div class="name">${product.name}</div>

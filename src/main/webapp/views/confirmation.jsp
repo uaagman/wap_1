@@ -3,16 +3,17 @@
 
 <div class="container">
     <h3 class="pull-right text-danger">${error}</h3>
+    <h3 class="pull-right text-info">Congratulations, your order has been confirmed. <br/><small>Your Order Details are : </small></h3>
     <div class="table-responsive">
         <table class="table">
             <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Item</th>
-                    <th>Per Price</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                </tr>
+            <tr>
+                <th>#</th>
+                <th>Item</th>
+                <th>Per Price</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
             </thead>
             <tbody>
             <c:set var="count" value="0" scope="page" />
@@ -30,12 +31,10 @@
                     <c:set var="total" value="${total + (item.qty * item.product.price)}" scope="page"/>
                 </c:forEach>
                 <tr><td></td><td colspan="3">Total:</td><td>${total}</td></tr>
-                <tr><td colspan="4"></td><td><a href="<c:url value="checkout"/>" class="btn btn-primary">Checkout</a></td></tr>
             </c:if>
             </tbody>
-        </table><br/><hr/>
-        <a href="<c:url value="home"/>" class="btn btn-info pull-right">Continue Shopping</a>
+        </table>
     </div>
 </div>
 
-<%@ include file="inc/footer.jsp" %>
+<%@ include file="inc/footer.jsp"%>

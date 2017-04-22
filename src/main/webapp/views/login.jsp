@@ -24,7 +24,7 @@
                             Remember Me
                         </label>
                     </div>
-                    <input type="hidden" name="referer" value="<%=request.getHeader("referer")%>">
+                    <input type="hidden" name="referer" value="${header.referer}">
                     <div class="wrapper">
 							<span class="group-btn">
 								<button type="submit" class="btn btn-primary btn-md">

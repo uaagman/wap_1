@@ -1,6 +1,8 @@
 package com.webstore.servlet;
 
+import com.webstore.model.BillingAddress;
 import com.webstore.model.Factory;
+import com.webstore.model.ShippingAddress;
 import com.webstore.model.User;
 
 import javax.servlet.ServletException;
@@ -56,6 +58,25 @@ public class Checkout extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String a;
+		User u = null;
+		List<User> users = new ArrayList<>(Factory.getUsers().values());
+		for( User user: users){
+			if(user.getUsername().equals(req.getSession().getAttribute("LoggedUser"))){
+				u = user;
+			}
+		}
+		if(req.getParameter("addType").equals("billing")){
+			BillingAddress billingAddress = new BillingAddress(req.getParameter("street"),req.getParameter("city"),req.getParameter("state"),req.getParameter("zip"),req.getParameter("phone"));
+			if(u != null){
+				u.setBillingAddress(billingAddress);
+			}
+
+		}else {
+			ShippingAddress shippingAddress = new ShippingAddress(req.getParameter("street"),req.getParameter("city"),req.getParameter("state"),req.getParameter("zip"),req.getParameter("phone"),req.getParameter("name"));
+			if(u != null){
+				u.setShippingAddress(shippingAddress);
+			}
+		}
+		resp.sendRedirect(getServletContext().getContextPath()+"/checkout");
 	}
 }

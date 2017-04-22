@@ -55,8 +55,7 @@
     </filter>
     <filter-mapping>
         <filter-name>auth</filter-name>
-        <url-pattern>/</url-pattern>
-        <url-pattern>/home</url-pattern>
+        <servlet-name>checkout</servlet-name>
     </filter-mapping>
     <session-config>
         <session-timeout>

@@ -36,11 +36,11 @@ public class Checkout extends HttpServlet {
 			if (logged != null) {
 				if (logged.getBillingAddress() == null) {
 					request.setAttribute("addType","billing");
-					request.getRequestDispatcher("addAddress.jsp").forward(request,response);
+					request.getRequestDispatcher("address.jsp").forward(request,response);
 					// to get billing address
 				} else if (logged.getShippingAddress() == null) {
 					request.setAttribute("addType","shipping");
-					request.getRequestDispatcher("addAddress.jsp").forward(request,response);
+					request.getRequestDispatcher("address.jsp").forward(request,response);
 					// to get shipping address
 				} else {
 					if(request.getSession().getAttribute("cartItems") != null){

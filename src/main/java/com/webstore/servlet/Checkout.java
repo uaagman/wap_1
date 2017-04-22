@@ -19,22 +19,24 @@ import java.util.List;
 public class Checkout extends HttpServlet {
 
 	private static final long serialVersionUID = 76868510909228857L;
+    User logged = new User();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		if (request.getSession().getAttribute("LoggedUser") == null) {
 			response.sendRedirect(getServletContext().getContextPath() + "/login");
 		} else {
-			User logged = null;
 			List<User> users = new ArrayList<>(Factory.getUsers().values());
 			for (User u : users) {
 				if (u.getUsername().equals(request.getSession().getAttribute("LoggedUser"))) {
-					logged = u;
+					logged.setUsername(u.getUsername());
+					logged.setPassword(u.getPassword());
 					break;
 				}
 			}
 			if (logged != null) {
-				if (logged.getBillingAddress() == null) {
+                System.out.println(logged);
+                if (logged.getBillingAddress() == null) {
 				    request.setAttribute("title","Add Billing Address");
 					request.setAttribute("addType","billing");
 					request.getRequestDispatcher("views/address.jsp").forward(request,response);
@@ -60,25 +62,26 @@ public class Checkout extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		User u = null;
 		List<User> users = new ArrayList<>(Factory.getUsers().values());
 		for( User user: users){
 			if(user.getUsername().equals(req.getSession().getAttribute("LoggedUser"))){
-				u = user;
+				logged.setUsername(user.getUsername());
+				logged.setPassword(user.getPassword());
+                break;
 			}
 		}
 		if(req.getParameter("addType").equals("billing")){
 			BillingAddress billingAddress = new BillingAddress(req.getParameter("street"),req.getParameter("city"),req.getParameter("state"),req.getParameter("zip"),req.getParameter("phone"));
-			if(u != null){
-				u.setBillingAddress(billingAddress);
+			if(logged != null){
+				logged.setBillingAddress(billingAddress);
 			}
 
 		}else {
 			ShippingAddress shippingAddress = new ShippingAddress(req.getParameter("street"),req.getParameter("city"),req.getParameter("state"),req.getParameter("zip"),req.getParameter("phone"),req.getParameter("name"));
-			if(u != null){
-				u.setShippingAddress(shippingAddress);
+			if(logged != null){
+				logged.setShippingAddress(shippingAddress);
 			}
 		}
-		resp.sendRedirect(getServletContext().getContextPath()+"/checkout");
+        resp.sendRedirect(getServletContext().getContextPath()+"/checkout");
 	}
 }

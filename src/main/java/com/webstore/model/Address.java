@@ -6,6 +6,18 @@ public class Address {
 	private String state;
 	private String zipCode;
 	private String phone;
+
+	@Override
+	public String toString() {
+		return "Address{" +
+				"street='" + street + '\'' +
+				", city='" + city + '\'' +
+				", state='" + state + '\'' +
+				", zipCode='" + zipCode + '\'' +
+				", phone='" + phone + '\'' +
+				'}';
+	}
+
 	public Address(String street, String city, String state, String zipCode, String phone) {
 		super();
 		this.street = street;

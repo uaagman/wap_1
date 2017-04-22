@@ -2,8 +2,8 @@
 <%@ include file="inc/head.jsp" %>
 
 <div class="container">
-    <h3 class="pull-right text-danger">${error}</h3>
-    <h3 class="pull-right text-info">Congratulations, your order has been confirmed. <br/><small>Your Order Details are : </small></h3>
+    <h3 class="text-danger">${error}</h3>
+    <h3 class="text-info">Congratulations, your order has been confirmed. <br/><small>Your Order Details are : </small></h3>
     <div class="table-responsive">
         <table class="table">
             <thead>

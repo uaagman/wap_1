@@ -76,18 +76,3 @@ body {
 	font-style: normal;
 	color: #9E9E9E;
 }
-
-.item .left {
-	float: left;
-}
-
-.item .right {
-	float: right;
-}
-
-label {
-	float: left;
-	width: 10em;
-	margin-right: 1em;
-	text-align: right;
-}

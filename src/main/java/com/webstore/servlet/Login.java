@@ -23,6 +23,7 @@ public class Login extends HttpServlet {
 				request.setAttribute("error", request.getSession().getAttribute("error"));
 				request.getSession().removeAttribute("error");
 			}
+			request.setAttribute("title","Login");
 			request.getRequestDispatcher("views/login.jsp").forward(request, response);
 		}
 	}

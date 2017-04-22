@@ -36,18 +36,18 @@ public class Checkout extends HttpServlet {
 			if (logged != null) {
 				if (logged.getBillingAddress() == null) {
 					request.setAttribute("addType","billing");
-					request.getRequestDispatcher("address.jsp").forward(request,response);
+					request.getRequestDispatcher("views/address.jsp").forward(request,response);
 					// to get billing address
 				} else if (logged.getShippingAddress() == null) {
 					request.setAttribute("addType","shipping");
-					request.getRequestDispatcher("address.jsp").forward(request,response);
+					request.getRequestDispatcher("views/address.jsp").forward(request,response);
 					// to get shipping address
 				} else {
 					if(request.getSession().getAttribute("cartItems") != null){
 						request.setAttribute("cartItems",request.getSession().getAttribute("cartItems"));
 						request.getSession().removeAttribute("cartItems");
 					}
-					request.getRequestDispatcher("confirmation.jsp").forward(request,response);
+					request.getRequestDispatcher("views/confirmation.jsp").forward(request,response);
 					// to checkout details display page
 				}
 			} else {

@@ -38,8 +38,8 @@ body {
 	color: red;
 }
 
-#product-list{
-	background-color: #D3D3D3;	
+#product-list {
+	background-color: #D3D3D3;
 }
 
 .item {
@@ -52,30 +52,42 @@ body {
 	float: left;
 }
 
-.item img{
+.item img {
 	height: 150px;
 	width: 180px;
-	float: 	left;
-  	background: url(../image/shirt.jpg) no-repeat scroll 0 0;
+	float: left;
+	background: url(../image/shirt.jpg) no-repeat scroll 0 0;
 }
-.name{
+
+.name {
 	font-size: 12px;
 	font-weight: bold;
 	color: #212121;
 }
-.price{
+
+.price {
 	font-size: 15px;
 	font-style: italic;
 	color: #424242;
 }
-.description{
+
+.description {
 	font-size: 12px;
 	font-style: normal;
 	color: #9E9E9E;
 }
-.item .left{
+
+.item .left {
 	float: left;
 }
-.item .right{
+
+.item .right {
 	float: right;
+}
+
+label {
+	float: left;
+	width: 10em;
+	margin-right: 1em;
+	text-align: right;
 }
